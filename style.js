@@ -72,8 +72,8 @@ main.innerHTML=sum
 
 main.addEventListener("click", function (e) {
     let btn = e.target;
-
-    // Check if the clicked element is a button
+    
+    // Handle Apply Now button click
     if (btn.tagName === "BUTTON") {
       if (btn.dataset.applied === "false") {
         btn.textContent = "Applied";
@@ -83,6 +83,25 @@ main.addEventListener("click", function (e) {
         btn.textContent = "Apply Now";
         btn.style.background = "#111";
         btn.dataset.applied = "false";
+      }
+    }
+    
+    // Handle Save button click
+    if (btn.classList.contains("save") || btn.parentElement?.classList.contains("save")) {
+      let saveBtn = btn.classList.contains("save") ? btn : btn.parentElement;
+      
+      if (saveBtn.dataset.applied === "false") {
+        saveBtn.textContent = "Saved ";
+        saveBtn.style.color="Gray";
+        
+        
+        
+        
+        saveBtn.dataset.applied = "true";
+        // localStorage.setItem("saved_" + Date.now(), JSON.stringify(saveBtn.closest(".card").innerText));
+      } else {
+        saveBtn.innerHTML = "Save <i class='ri-bookmark-line'></i>";
+        saveBtn.dataset.applied = "false";
       }
     }
 });
