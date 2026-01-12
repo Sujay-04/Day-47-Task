@@ -70,31 +70,21 @@ let main = document.querySelector('main')
 
 main.innerHTML=sum
 
-// main.addEventListener("click", function (e) {
+main.addEventListener("click", function (e) {
+    let btn = e.target;
 
-  
-//     let btn = e.target;
-
-//     if (btn.dataset.applied === "false") {
-//       btn.textContent = "Applied";
-//       btn.style.background = "#2ecc71";
-//       btn.dataset.applied = "true";
-//     } else {
-//       btn.textContent = "Apply Now";
-//       btn.style.background = "#111";
-//       btn.dataset.applied = "false";
-//     }}
-// )
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+    // Check if the clicked element is a button
+    if (btn.tagName === "BUTTON") {
+      if (btn.dataset.applied === "false") {
+        btn.textContent = "Applied";
+        btn.style.background = "#2ecc71";
+        btn.dataset.applied = "true";
+      } else {
+        btn.textContent = "Apply Now";
+        btn.style.background = "#111";
+        btn.dataset.applied = "false";
+      }
     }
-  });
 });
 
-document.querySelectorAll('.card').forEach(card => {
-  observer.observe(card);
-});
 
