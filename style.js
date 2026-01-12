@@ -91,7 +91,8 @@ main.addEventListener("click", function (e) {
       let saveBtn = btn.classList.contains("save") ? btn : btn.parentElement;
       
       if (saveBtn.dataset.applied === "false") {
-        saveBtn.textContent = "Saved ";
+        // saveBtn.textContent = "Saved ";
+        saveBtn.innerHTML = "Saved <i class='ri-bookmark-fill'></i>";
         saveBtn.style.color="Gray";
         
         
